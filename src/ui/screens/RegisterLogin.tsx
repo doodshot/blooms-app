@@ -65,7 +65,7 @@ const styles = StyleSheet.create( {
         flexDirection: 'column',
     },
     imgLogo: {
-        marginTop: 80,
+        marginTop: 40,
         width: '100%',
         height: 350,
     },
@@ -84,7 +84,7 @@ const styles = StyleSheet.create( {
         width: 230
     },
     ctnLoginButton: {
-        marginTop: 82,
+        marginTop: 40,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -92,7 +92,6 @@ const styles = StyleSheet.create( {
         fontFamily: 'Poppins-Regular',
         color: 'white',
         fontSize: 28,
-        marginTop: 22,
     },
     txtCreateAccount: {
         color: 'white',
