@@ -84,7 +84,7 @@ const styles = StyleSheet.create( {
         width: 230
     },
     ctnLoginButton: {
-        marginTop: 40,
+        marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
