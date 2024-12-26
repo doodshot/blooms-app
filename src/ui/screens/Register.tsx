@@ -80,7 +80,12 @@ export default function Register() {
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-                <LoginCheck onPress={()=>{}} title={"Register"}/>
+                <LoginCheck onPress={()=>{
+                    return(
+                        // provvisorio
+                        nav.navigate("HomePage")
+                    )
+                }} title={"Register"}/>
             </View>
         </ImageBackground>
     )

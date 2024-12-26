@@ -70,7 +70,12 @@ export default function  Login() {
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-               <LoginCheck onPress={()=>{}} title={"Login"}/>
+               <LoginCheck onPress={()=>{
+                   return(
+                       // provvisorio
+                       nav.navigate("HomePage")
+                   )
+               }} title={"Login"}/>
             </View>
         </ImageBackground>
     );

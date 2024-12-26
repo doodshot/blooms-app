@@ -4,6 +4,7 @@ import Splash from "../ui/screens/Splash";
 import RegisterLogin from "../ui/screens/RegisterLogin";
 import Login from "../ui/screens/Login";
 import Register from "../ui/screens/Register";
+import HomePage from "../ui/screens/HomePage";
 
 const Stack = createNativeStackNavigator();
 export default function RootStack() {
@@ -13,7 +14,7 @@ export default function RootStack() {
             <Stack.Screen name={"RegisterLogin"} component={RegisterLogin}/>
             <Stack.Screen name={"Login"} component={Login}/>
             <Stack.Screen name={"Register"} component={Register}/>
-
+            <Stack.Screen name={"HomePage"} component={HomePage}/>
         </Stack.Navigator>
     )
 }
