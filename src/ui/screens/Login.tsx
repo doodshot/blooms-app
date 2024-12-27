@@ -73,7 +73,7 @@ export default function  Login() {
                <LoginCheck onPress={()=>{
                    return(
                        // provvisorio
-                       nav.navigate("HomePage")
+                       nav.navigate("TabNavigator")
                    )
                }} title={"Login"}/>
             </View>

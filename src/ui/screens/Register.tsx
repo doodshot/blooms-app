@@ -83,7 +83,7 @@ export default function Register() {
                 <LoginCheck onPress={()=>{
                     return(
                         // provvisorio
-                        nav.navigate("HomePage")
+                        nav.navigate("TabNavigator")
                     )
                 }} title={"Register"}/>
             </View>
