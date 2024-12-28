@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import {useState} from "react";
 import {LoginButton} from "../components/LoginButton";
 import {useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "../../navigation/RootStack";
 
 
 

@@ -2,20 +2,26 @@ import {View, Text, Pressable, Image, TextInput, ImageBackground, StyleSheet} fr
 import {useFonts} from "expo-font";
 import {LoginCheck} from "../components/LoginCheck";
 import {useNavigation} from "@react-navigation/native";
+import { createUserWithEmailAndPassword } from "firebase/auth"; // Importa la funzione di registrazione
+import {auth} from "../../../firebase"
+import {useState} from "react";
+import 'firebase/auth' // ringraziamo tutti insieme stackoverflow 🙏🙏🙏🙏🙏🙏🙏
 
 
 export default function Register() {
+    // navigation
     const nav = useNavigation()
 
-    // navigation
     const onBackButton= () => {
         console.warn("sei stato premuto")
         return(
             nav.goBack()
         )
     }
-
-
+    //USE State
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("")
+    const [passwordConfirm, setPasswordConfirm] = useState("")
     // fonts
     let [fontsLoaded] = useFonts({
         'Poppins-SemiBold': require('../../../assets/fonts/Poppins-SemiBold.ttf'),
@@ -29,6 +35,36 @@ export default function Register() {
             </View>
         );
     }
+    //logic
+    //registro utente
+    const onPressRegister = async () => {
+        if (password !== passwordConfirm){
+            alert("PASSWORD SBAGLIATA!")
+            return;
+        }
+        if (!email || email.trim().length === 0) {
+            alert("L'email non può essere vuota");
+            return;
+        }
+
+        if (!password || password.trim().length === 0) {
+            alert("La password non può essere vuota");
+            return;
+        }
+        try {
+            const user = await createUserWithEmailAndPassword(auth, email, password)
+            console.log("Utente creato con successo:", user);
+            return nav.reset({
+                index: 0,
+                routes: [{name: 'TabNavigator'}] // da errore ma funziona
+            })
+
+        } catch (err){
+            console.log(err)
+            alert(err)
+        }
+    }
+
 
     return (
         <ImageBackground
@@ -55,37 +91,36 @@ export default function Register() {
                     placeholder="Inserisci la tua email"
                     placeholderTextColor="rgba(255, 255, 255, 0.7)"
                     style={styles.emailInput}
+                    value={email}
+                    onChangeText={setEmail}
                 />
             </View>
 
             <View style={styles.containerPassword}>
                 <TextInput
-                    keyboardType="email-address"
                     autoCapitalize="none"
                     secureTextEntry={true}
                     placeholder="Inserisci la tua password"
                     placeholderTextColor="rgba(255, 255, 255, 0.7)"
                     style={styles.emailInput}
+                    value={password}
+                    onChangeText={setPassword}
                 />
             </View>
 
             <View style={styles.containerConfermaPassword}>
                 <TextInput
-                    keyboardType="email-address"
                     autoCapitalize="none"
                     secureTextEntry={true}
                     placeholder="Conferma la tua password"
                     placeholderTextColor="rgba(255, 255, 255, 0.7)"
                     style={styles.emailInput}
+                    value={passwordConfirm}
+                    onChangeText={setPasswordConfirm}
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-                <LoginCheck onPress={()=>{
-                    return(
-                        // provvisorio
-                        nav.navigate("TabNavigator")
-                    )
-                }} title={"Register"}/>
+                <LoginCheck onPress={onPressRegister} title={"Register"}/>
             </View>
         </ImageBackground>
     )

@@ -73,7 +73,10 @@ export default function  Login() {
                <LoginCheck onPress={()=>{
                    return(
                        // provvisorio
-                       nav.navigate("TabNavigator")
+                       nav.reset({
+                           index: 0,
+                           routes: [{name: 'TabNavigator'}] // da errore ma funziona
+                       })
                    )
                }} title={"Login"}/>
             </View>

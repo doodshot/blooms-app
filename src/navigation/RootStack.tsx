@@ -10,7 +10,19 @@ import MapPage from "../ui/screens/MapPage";
 import Profile from "../ui/screens/Profile";
 import BadgePage from "../ui/screens/BadgePage";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+    splash: undefined;
+    RegisterLogin: undefined;
+    Login: undefined;
+    Register: undefined;
+    TabNavigator: undefined;
+    HomePage: undefined;
+    MapPage: undefined;
+    Profile: undefined;
+    BadgePage: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function RootStack() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
