@@ -1,8 +1,12 @@
-import {Image, ImageBackground, Text, View, StyleSheet, Pressable, TextInput} from "react-native";
+import {Image, ImageBackground, Text, View, StyleSheet, Pressable, TextInput, Alert} from "react-native";
 import {LoginButton} from "../components/LoginButton";
 import {useNavigation} from "@react-navigation/native";
 import {useFonts} from "expo-font";
 import {LoginCheck} from "../components/LoginCheck";
+import 'firebase/auth' // ringraziamo tutti insieme stackoverflow 🙏🙏🙏🙏🙏🙏🙏
+import {useState} from "react";
+import {signInWithEmailAndPassword} from "firebase/auth"; // Importa il metodo di login
+import {auth} from "../../../firebase"; // La configurazione di Firebase
 
 
 export default function  Login() {
@@ -12,11 +16,13 @@ export default function  Login() {
 
     //pulsanti
     const onBackButton= () => {
-        console.warn("sei stato premuto")
         return(
             nav.goBack()
         )
     }
+    //USE State
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("")
 
     // fonts
     let [fontsLoaded] = useFonts({
@@ -31,6 +37,29 @@ export default function  Login() {
             </View>
         );
     }
+
+    // Funzione di Login
+    const handleLogin = async () => {
+        if (!email || !password) {
+            Alert.alert("Errore", "Per favore, inserisci email e password.");
+            return;
+        }
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            console.log("Utente autenticato e ha loggato:", user);
+            if (user != null) {
+                nav.reset({
+                    index: 0,
+                    routes: [{name: 'TabNavigator'}], // da errore ma funziona
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            Alert.alert("Errore di login", "Credenziali errate o account non esistente.");
+        }
+    };
     return(
         <ImageBackground
             style={styles.container}
@@ -56,6 +85,8 @@ export default function  Login() {
                     placeholder="Inserisci la tua email"
                     placeholderTextColor="rgba(255, 255, 255, 0.7)"
                     style={styles.emailInput}
+                    value={email}
+                    onChangeText={setEmail}
                 />
             </View>
 
@@ -67,18 +98,12 @@ export default function  Login() {
                     placeholder="Inserisci la tua password"
                     placeholderTextColor="rgba(255, 255, 255, 0.7)"
                     style={styles.emailInput}
+                    value={password}
+                    onChangeText={setPassword}
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-               <LoginCheck onPress={()=>{
-                   return(
-                       // provvisorio
-                       nav.reset({
-                           index: 0,
-                           routes: [{name: 'TabNavigator'}] // da errore ma funziona
-                       })
-                   )
-               }} title={"Login"}/>
+               <LoginCheck onPress={handleLogin} title={"Login"}/>
             </View>
         </ImageBackground>
     );
