@@ -8,7 +8,7 @@ const tab = createBottomTabNavigator()
 
 export default function TabNavigator() {
     return (
-        <View style={{flex: 1, backgroundColor: "#163440"}}> // Imposta lo sfondo della barra delle schede come trasparente
+        <View style={{flex: 1, backgroundColor: "#A1BCC1"}}> // Imposta lo sfondo della barra delle schede come trasparente
             <tab.Navigator
                 initialRouteName="HomePage"
                 screenOptions={({route}) => ({
@@ -23,12 +23,12 @@ export default function TabNavigator() {
                         borderColor: 'rgba(0, 0, 0, 0.1)',
                         width: 350,
                         alignSelf: "center",
-                        borderRadius: 20,
-                        shadowColor: "#000",
+                        borderRadius: 25,
+                        shadowColor: "#A1BCC1",
                         shadowOffset: {width: 0, height: 5},
-                        shadowOpacity: 0.1,
+                        shadowOpacity: 0.3,
                         shadowRadius: 5,
-                        elevation: 5, // Ombra per Android
+                        elevation: 10, // Ombra per Android
                         marginBottom: 25,
 
                     },

@@ -1,4 +1,4 @@
-import {View, StyleSheet, SafeAreaView} from "react-native";
+import {View, StyleSheet, SafeAreaView, Text} from "react-native";
 
 
 // la pagina del gioco per fare i punti
@@ -6,7 +6,11 @@ export default function HomePage() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
+                <View style={styles.contentRewards}>
+                    <Text>
 
+                    </Text>
+                </View>
             </View>
         </SafeAreaView>
     )
@@ -15,11 +19,15 @@ export default function HomePage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#163440',
+        backgroundColor: '#A1BCC1',
     },
     content: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+    },
+    contentRewards: {
+        width: 100,
+        height: 45,
+        borderWidth: 1
+
     }
 });
