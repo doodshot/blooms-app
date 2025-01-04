@@ -8,6 +8,7 @@ const tab = createBottomTabNavigator()
 
 export default function TabNavigator() {
     return (
+        //163440
         <View style={{flex: 1, backgroundColor: "#A1BCC1"}}> // Imposta lo sfondo della barra delle schede come trasparente
             <tab.Navigator
                 initialRouteName="HomePage"

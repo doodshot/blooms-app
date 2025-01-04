@@ -7,8 +7,8 @@ export default function HomePage() {
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <View style={styles.contentRewards}>
-                    <Text>
-
+                    <Text style={styles.containerTxt}>
+                        Points: 0000
                     </Text>
                 </View>
             </View>
@@ -25,9 +25,37 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentRewards: {
-        width: 100,
+        width: 130,
         height: 45,
-        borderWidth: 1
-
+        borderWidth: 1,
+        marginHorizontal: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        padding: 8,
+        borderColor: '#163440',
+        shadowOffset: {width: 0, height: 5},
+        shadowColor: '#163440'
+    },
+    containerTxt:{
+        textAlign: 'center',
+        fontFamily: 'Poppins-SemiBold',
+        color: '#163440'
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

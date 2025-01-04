@@ -60,6 +60,13 @@ export default function  Login() {
             Alert.alert("Errore di login", "Credenziali errate o account non esistente.");
         }
     };
+
+    const handleLoginWithOutInternt = () => {
+        return nav.reset({
+            index: 0,
+            routes: [{name: 'TabNavigator'}], // da errore ma funziona
+        });
+    }
     return(
         <ImageBackground
             style={styles.container}
@@ -103,7 +110,7 @@ export default function  Login() {
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-               <LoginCheck onPress={handleLogin} title={"Login"}/>
+               <LoginCheck onPress={handleLoginWithOutInternt} title={"Login"}/> //modificato solo perchè sono in aereo rimettere la funzione normale quando sarò di nuov online
             </View>
         </ImageBackground>
     );
