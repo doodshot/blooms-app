@@ -61,12 +61,6 @@ export default function  Login() {
         }
     };
 
-    const handleLoginWithOutInternt = () => {
-        return nav.reset({
-            index: 0,
-            routes: [{name: 'TabNavigator'}], // da errore ma funziona
-        });
-    }
     return(
         <ImageBackground
             style={styles.container}
@@ -110,7 +104,7 @@ export default function  Login() {
                 />
             </View>
             <View style={styles.cointainerLoginCheck}>
-               <LoginCheck onPress={handleLoginWithOutInternt} title={"Login"}/> //modificato solo perchè sono in aereo rimettere la funzione normale quando sarò di nuov online
+               <LoginCheck onPress={handleLogin} title={"Login"}/>
             </View>
         </ImageBackground>
     );

@@ -9,7 +9,7 @@ const tab = createBottomTabNavigator()
 export default function TabNavigator() {
     return (
         //163440
-        <View style={{flex: 1, backgroundColor: "#A1BCC1"}}> // Imposta lo sfondo della barra delle schede come trasparente
+        <View style={{flex: 1, backgroundColor: "#A1BCC1"}}>
             <tab.Navigator
                 initialRouteName="HomePage"
                 screenOptions={({route}) => ({
@@ -29,12 +29,12 @@ export default function TabNavigator() {
                         shadowOffset: {width: 0, height: 5},
                         shadowOpacity: 0.3,
                         shadowRadius: 5,
-                        elevation: 10, // Ombra per Android
+                        elevation: 10,
                         marginBottom: 25,
 
                     },
                     tabBarBackground: () => (
-                        <View style={{flex: 1, backgroundColor: 'transparent'}}/> // Imposta lo sfondo della barra delle schede come trasparente
+                        <View style={{flex: 1, backgroundColor: 'transparent'}}/>
                     ),
                     tabBarIcon: ({focused}) => {
                         let iconSource;
@@ -68,7 +68,7 @@ export default function TabNavigator() {
                             />
                         );
                     },
-                    //
+
                 })}>
                 <tab.Screen name={"HomePage"} component={HomePage}/>
                 <tab.Screen name={"MapPage"} component={MapPage}/>
