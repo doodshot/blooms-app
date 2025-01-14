@@ -5,13 +5,11 @@ import {View, StyleSheet, SafeAreaView, Text} from "react-native";
 export default function PlayPage() {
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.content}>
                 <View style={styles.contentRewards}>
                     <Text style={styles.containerTxt}>
                         Points: 0000
                     </Text>
                 </View>
-            </View>
         </SafeAreaView>
     )
 }
@@ -20,9 +18,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#A1BCC1',
-    },
-    content: {
-        flex: 1,
     },
     contentRewards: {
         width: 130,
