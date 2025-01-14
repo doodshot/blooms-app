@@ -9,7 +9,6 @@ const tab = createBottomTabNavigator()
 
 export default function TabNavigator() {
     return (
-        //163440
         <View style={{flex: 1, backgroundColor: "#A1BCC1"}}>
             <tab.Navigator
                 initialRouteName="HomePage"
