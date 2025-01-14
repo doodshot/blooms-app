@@ -1,9 +1,10 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import HomePage from "../ui/screens/HomePage";
+import PlayPage from "../ui/screens/PlayPage";
 import MapPage from "../ui/screens/MapPage";
 import {Image, View} from "react-native";
 import Profile from "../ui/screens/Profile";
 import BadgePage from "../ui/screens/BadgePage";
+import HomePage from "../ui/screens/HomePage";
 const tab = createBottomTabNavigator()
 
 export default function TabNavigator() {
@@ -40,20 +41,24 @@ export default function TabNavigator() {
                         let iconSource;
                         if (route.name === "HomePage") {
                             iconSource = focused
-                                ? require("../../assets/icons/home-selected.png")
-                                : require("../../assets/icons/home.png");
+                                ? require("../../assets/icons/house-selected.png")
+                                : require("../../assets/icons/house.png");
                         } else if (route.name === "MapPage") {
                             iconSource = focused
                                 ? require("../../assets/icons/map-selected.png")
                                 : require("../../assets/icons/map.png");
-                        } else if (route.name === 'Profile') {
+                        } else if (route.name === 'PlayPage') {
                             iconSource = focused
-                                ? require("../../assets/icons/profile-selected.png")
-                                : require("../../assets/icons/profile.png");
+                                ? require("../../assets/icons/home-selected.png")
+                                : require("../../assets/icons/home.png");
                         } else if (route.name === 'BadgePage') {
                             iconSource = focused
                                 ? require("../../assets/icons/badge-selected.png")
                                 : require("../../assets/icons/badge.png");
+                        } else if (route.name === 'Profile') {
+                            iconSource = focused
+                                ? require("../../assets/icons/profile-selected.png")
+                                : require("../../assets/icons/profile.png");
                         }
                         return (
                             <Image
@@ -70,10 +75,11 @@ export default function TabNavigator() {
                     },
 
                 })}>
-                <tab.Screen name={"HomePage"} component={HomePage}/>
+                <tab.Screen name={"PlayPage"} component={PlayPage}/>
                 <tab.Screen name={"MapPage"} component={MapPage}/>
-                <tab.Screen name={"Profile"} component={Profile}/>
+                <tab.Screen name={"HomePage"} component={HomePage}/>
                 <tab.Screen name={"BadgePage"} component={BadgePage}/>
+                <tab.Screen name={"Profile"} component={Profile}/>
             </tab.Navigator>
         </View>
     )

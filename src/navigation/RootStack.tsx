@@ -4,11 +4,12 @@ import Splash from "../ui/screens/Splash";
 import RegisterLogin from "../ui/screens/RegisterLogin";
 import Login from "../ui/screens/Login";
 import Register from "../ui/screens/Register";
-import HomePage from "../ui/screens/HomePage";
+import PlayPage from "../ui/screens/PlayPage";
 import TabNavigator from "./tab.navigator";
 import MapPage from "../ui/screens/MapPage";
 import Profile from "../ui/screens/Profile";
 import BadgePage from "../ui/screens/BadgePage";
+import HomePage from "../ui/screens/HomePage";
 
 export type RootStackParamList = {
     splash: undefined;
@@ -16,10 +17,11 @@ export type RootStackParamList = {
     Login: undefined;
     Register: undefined;
     TabNavigator: undefined;
-    HomePage: undefined;
+    PlayPage: undefined;
     MapPage: undefined;
     Profile: undefined;
     BadgePage: undefined;
+    HomePage: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -31,10 +33,11 @@ export default function RootStack() {
             <Stack.Screen name={"Login"} component={Login}/>
             <Stack.Screen name={"Register"} component={Register}/>
             <Stack.Screen name={"TabNavigator"} component={TabNavigator}/>
-            <Stack.Screen name={"HomePage"} component={HomePage}/>
+            <Stack.Screen name={"PlayPage"} component={PlayPage}/>
             <Stack.Screen name={"MapPage"} component={MapPage}/>
             <Stack.Screen name={"Profile"} component={Profile}/>
             <Stack.Screen name={"BadgePage"} component={BadgePage}/>
+            <Stack.Screen name={"HomePage"} component={HomePage}/>
         </Stack.Navigator>
     )
 }

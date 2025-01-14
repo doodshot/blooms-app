@@ -79,18 +79,20 @@ export default function MapPage() {
     };
 
     return (
-        <View>
-            <Canvas>
-                <Suspense fallback={null}>
-                    <Model/>
-                </Suspense>
-            </Canvas>
-        </View>
+        <GLView
+            style={styles.glView}
+            onContextCreate={onContextCreate}
+        />
     );
-    {/*  <GLView
-                style={styles.glView}
-                onContextCreate={onContextCreate}
-            /> */}
+    {/* <View>
+        <Canvas>
+            <Suspense fallback={null}>
+                <Model/>
+            </Suspense>
+        </Canvas>
+    </View>
+     */}
+
 }
 
 const styles = StyleSheet.create({
