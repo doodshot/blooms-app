@@ -10,6 +10,7 @@ import MapPage from "../ui/screens/MapPage";
 import Profile from "../ui/screens/Profile";
 import BadgePage from "../ui/screens/BadgePage";
 import HomePage from "../ui/screens/HomePage";
+import QuizScreen from "../ui/screens/QuizScreen";
 
 export type RootStackParamList = {
     splash: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
     Profile: undefined;
     BadgePage: undefined;
     HomePage: undefined;
+    QuizPage: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -38,6 +40,7 @@ export default function RootStack() {
             <Stack.Screen name={"Profile"} component={Profile}/>
             <Stack.Screen name={"BadgePage"} component={BadgePage}/>
             <Stack.Screen name={"HomePage"} component={HomePage}/>
+            <Stack.Screen name={"QuizPage"} component={QuizScreen}/>
         </Stack.Navigator>
     )
 }

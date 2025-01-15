@@ -1,16 +1,25 @@
-import {Text, TouchableOpacity, View, StyleSheet} from "react-native";
-
+import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
 export type gamecomponentProps = {
     number: string;
     onPress: () => void;
+    isCompleted?: boolean;
 }
 
-const Gamecomponent = ({number, onPress}: gamecomponentProps) => {
+const Gamecomponent = ({ number, onPress, isCompleted }: gamecomponentProps) => {
     return (
-        <View style={styles.quizGame}>
-            <TouchableOpacity onPress={onPress}>
-                <Text style={styles.txtGame}>
+        <View style={[
+            styles.quizGame,
+            isCompleted && styles.completedQuizGame
+        ]}>
+            <TouchableOpacity
+                onPress={onPress}
+                disabled={isCompleted}
+            >
+                <Text style={[
+                    styles.txtGame,
+                    isCompleted && styles.completedTxtGame
+                ]}>
                     {number}
                 </Text>
             </TouchableOpacity>
@@ -24,6 +33,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#163440',
     },
+    completedTxtGame: {
+        color: '#999', // Testo più chiaro per i quiz completati
+    },
     quizGame: {
         width: 54,
         height: 54,
@@ -32,6 +44,10 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    completedQuizGame: {
+        backgroundColor: '#e6e6e6', // Sfondo più chiaro per i quiz completati
+        opacity: 0.8,
     }
 })
 
