@@ -86,6 +86,9 @@ export default function PlayPage() {
                     {renderQuizContainer(13)}
                     {renderQuizContainer(19)}
                     {renderQuizContainer(25)}
+                    {renderQuizContainer(31)}
+                    {renderQuizContainer(37)}
+                    {renderQuizContainer(43)}
                 </ScrollView>
             </View>
         </SafeAreaView>
@@ -130,6 +133,7 @@ const styles = StyleSheet.create({
     },
     ctnGame: {
         flexDirection: "row",
+        marginTop: 22
     },
     modalContainer: {
         flex: 1,
