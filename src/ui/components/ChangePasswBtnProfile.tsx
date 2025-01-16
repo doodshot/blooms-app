@@ -3,10 +3,12 @@
 // BTN per cambiare passswrod
 
 import {Text, TouchableOpacity, View, StyleSheet} from "react-native";
+import {Ionicons} from "@expo/vector-icons";
 
 export interface ChangePasswBtnProfileProps {
     title: string;
     OnPress :  () => void;
+    style?: any
 }
 
 
@@ -17,6 +19,7 @@ export const ChangePasswBtnProfile = ({title, OnPress}:ChangePasswBtnProfileProp
                 <Text style={styles.txt}>
                     {title}
                 </Text>
+                <Ionicons name={"lock-closed"} size={24} color={"#163440"}/>
             </TouchableOpacity>
         </View>
     )
@@ -24,8 +27,8 @@ export const ChangePasswBtnProfile = ({title, OnPress}:ChangePasswBtnProfileProp
 
 export const styles = StyleSheet.create({
     ctn: {
-        alignItems: 'center',
-        justifyContent: 'center'
+        marginTop: 20
+
     },
     ctnPressable: {
         padding: 10,
@@ -34,7 +37,9 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         shadowOffset: {width: 0, height: 5},
         shadowColor: 'black',
-        backgroundColor: '#A1BCC1'
+        backgroundColor: '#A1BCC1',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
     },
     txt: {
         textAlign: 'center',
