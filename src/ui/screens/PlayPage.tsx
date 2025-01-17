@@ -68,6 +68,7 @@ export default function PlayPage() {
     );
 
     return (
+        <ScrollView style={styles.container}>
         <SafeAreaView style={styles.container}>
             <View style={styles.contentRewards}>
                 <Text style={styles.containerTxt}>Points: {points}</Text>
@@ -92,6 +93,7 @@ export default function PlayPage() {
                 </ScrollView>
             </View>
         </SafeAreaView>
+        </ScrollView>
     );
 }
 
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     titleTxt: {
         fontFamily: "Poppins-SemiBold",
         fontSize: 20,
-        color: "#fff",
+        color: "#163440",
         marginVertical: 20,
         width: 300,
     },
