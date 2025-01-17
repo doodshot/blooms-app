@@ -116,10 +116,10 @@ export default function HomePage() {
                         <Text style={styles.padiglioneText}>Padiglione 2</Text>
                         <View style={{flexDirection:'column', marginHorizontal: 20}}>
                             <Text style={styles.ctnText}>
-                                Eventi di Tornei di gaming,
+                               Interviste con professsionisti,
                             </Text>
                             <Text style={styles.ctnText}>
-                                dal retrò al competitivo
+                                con streamer e GameDev
                             </Text>
                         </View>
                     </View>
